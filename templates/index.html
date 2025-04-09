@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliyun SMS Integration</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 800px;
+            margin-top: 30px;
+        }
+        .flash-messages {
+            margin-bottom: 20px;
+        }
+        .flash-error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .flash-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        .card {
+            margin-bottom: 30px;
+        }
+        .api-section {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Aliyun SMS Integration</h1>
+        
+        <!-- Flash Messages -->
+        <div class="flash-messages">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h4>Send SMS</h4>
+            </div>
+            <div class="card-body">
+                <form action="/send-sms" method="POST">
+                    <div class="mb-3">
+                        <label for="phone_numbers" class="form-label">Phone Numbers:</label>
+                        <input type="text" class="form-control" id="phone_numbers" name="phone_numbers" placeholder="Phone numbers (comma separated for multiple)" required>
+                        <div class="form-text">Format: +8618518251024 or 18518251024</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="sign_name" class="form-label">Sign Name:</label>
+                        <input type="text" class="form-control" id="sign_name" name="sign_name" placeholder="Your Aliyun registered sign name" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="template_code" class="form-label">Template Code:</label>
+                        <input type="text" class="form-control" id="template_code" name="template_code" placeholder="Your Aliyun SMS template code" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="template_param" class="form-label">Template Parameters (JSON):</label>
+                        <textarea class="form-control" id="template_param" name="template_param" rows="3" placeholder='{"code":"123456"}'></textarea>
+                        <div class="form-text">JSON format required. Leave empty if not needed.</div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Send SMS</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="api-section">
+            <h3>API Usage</h3>
+            <div class="card">
+                <div class="card-header">
+                    <h5>REST API Endpoint</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Endpoint:</strong> <code>/api/send-sms</code></p>
+                    <p><strong>Method:</strong> POST</p>
+                    <p><strong>Content-Type:</strong> application/json</p>
+                    
+                    <h6>Request Body:</h6>
+                    <pre class="bg-light p-3 rounded">
+{
+  "phone_numbers": "13800138000",
+  "sign_name": "YourSignName",
+  "template_code": "SMS_123456789",
+  "template_param": {
+    "code": "123456"
+  }
+}
+                    </pre>
+                    
+                    <h6>Response:</h6>
+                    <pre class="bg-light p-3 rounded">
+{
+  "success": true,
+  "message": "SMS sent successfully",
+  "request_id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+  "code": "OK",
+  "biz_id": "XXXXXXXXXXXXXXXX"
+}
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
