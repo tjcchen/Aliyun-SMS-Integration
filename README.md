@@ -59,7 +59,11 @@ FLASK_SECRET_KEY=your_secret_key_for_flask
 ## Running the Application
 
 ```bash
-python app.py
+python3 app.py
+
+# or
+
+python3 test_sms.py --phone "13800138000" --sign "YourCompany" --template "SMS_123456789" --params '{"code":"123456"}'
 ```
 
 The application will be available at http://localhost:5000
