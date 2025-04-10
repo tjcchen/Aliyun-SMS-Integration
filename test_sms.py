@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 """
 Test script for Aliyun SMS integration.
 This script allows you to send an SMS message directly from the command line

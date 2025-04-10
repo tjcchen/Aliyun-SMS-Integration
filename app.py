@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import os
 import sys
 from flask import Flask, render_template, request, flash, redirect, url_for
