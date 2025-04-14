@@ -15,7 +15,6 @@ from alibabacloud_tea_util.client import Client as UtilClient
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'dev-key-for-testing')
 
 class AliyunSMS:
     @staticmethod
