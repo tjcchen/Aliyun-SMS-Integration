@@ -22,7 +22,7 @@ A Flask web application that integrates with the Aliyun SMS Service, allowing yo
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/Aliyun-SMS-Integration.git
+git clone https://github.com/tjcchen/Aliyun-SMS-Integration.git
 cd Aliyun-SMS-Integration
 ```
 
