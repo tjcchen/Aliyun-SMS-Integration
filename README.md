@@ -51,9 +51,6 @@ Edit the `.env` file with your Aliyun credentials:
 # Aliyun SMS API Credentials
 ALIBABA_CLOUD_ACCESS_KEY_ID=your_access_key_id
 ALIBABA_CLOUD_ACCESS_KEY_SECRET=your_access_key_secret
-
-# Flask Configuration
-FLASK_SECRET_KEY=your_secret_key_for_flask
 ```
 
 ## Running the Application
