@@ -60,7 +60,7 @@ python3 app.py
 
 # or
 
-python3 test_sms.py --phone "13800138000" --sign "YourCompany" --template "SMS_123456789" --params '{"code":"123456"}'
+python3 test_sms.py --phone "18518251025" --sign "雅思鸭科技" --template "SMS_483170381" --params '{"code":"123456"}
 ```
 
 The application will be available at http://localhost:5000
